@@ -135,7 +135,7 @@ from step1_prepare_image import prepare_image
 
 # Load and prepare the image
 # CHANGE THIS to use your own image!
-img_path = 'fleischhacker.jpg'  # Example image - replace with your own image
+img_path = 'littlegray.jpg'  # Example image - replace with your own image
 gray_image = prepare_image(img_path, max_size=512)
 
 # Display the prepared image
@@ -284,24 +284,24 @@ print(f"  - Use mid_tone_center around {tonal_stats['mean']:.2f} to emphasize av
 #| label: step4-block-letter
 #| echo: false
 #| fig-cap: "Block letter S representing selection bias"
-#| eval: false
 
-# UNCOMMENT AND USE THIS ONCE YOU'VE WRITTEN step4_create_block_letter.py:
-# from step4_create_block_letter import create_block_letter_s
-# 
-# # Get image dimensions
-# h, w = gray_image.shape
-# 
-# # Create block letter S
-# block_letter = create_block_letter_s(h, w, letter="S", font_size_ratio=0.9)
-# 
-# # Display the block letter
-# fig, ax = plt.subplots(figsize=(6.5, 5))
-# ax.imshow(block_letter, cmap='gray', vmin=0, vmax=1)
-# ax.axis('off')
-# ax.set_title('Step 4: Selection Bias (Block Letter S)', fontsize=14, fontweight='bold', pad=10)
-# plt.tight_layout()
-# plt.show()
+import matplotlib.pyplot as plt
+from step4_create_block_letter import create_block_letter_s
+
+h, w = gray_image.shape
+block_letter = create_block_letter_s(h, w, letter="S", font_size_ratio=0.9)
+
+fig, ax = plt.subplots(figsize=(6.5, 5))
+ax.imshow(block_letter, cmap="gray", vmin=0, vmax=1)
+ax.axis("off")
+ax.set_title(
+    "Step 4: Selection Bias (Block Letter S)",
+    fontsize=14,
+    fontweight="bold",
+    pad=10,
+)
+plt.tight_layout()
+plt.show()
 ```
 
 ## Step 5: Create Masked Image ⚠️ **YOUR TASK**
@@ -330,25 +330,27 @@ print(f"  - Use mid_tone_center around {tonal_stats['mean']:.2f} to emphasize av
 #| label: step5-masked
 #| echo: false
 #| fig-cap: "Masked stippled image showing selection bias effect"
-#| eval: false
 
-# UNCOMMENT AND USE THIS ONCE YOU'VE WRITTEN step5_create_masked.py:
-# from step5_create_masked import create_masked_stipple
-# 
-# # Create masked stippled image
-# masked_stipple = create_masked_stipple(
-#     stipple_pattern,
-#     block_letter,
-#     threshold=0.5  # Pixels below 0.5 are considered part of the mask
-# )
-# 
-# # Display the masked image
-# fig, ax = plt.subplots(figsize=(6.5, 5))
-# ax.imshow(masked_stipple, cmap='gray', vmin=0, vmax=1)
-# ax.axis('off')
-# ax.set_title('Step 5: Masked Stippled Image (Estimate)', fontsize=14, fontweight='bold', pad=10)
-# plt.tight_layout()
-# plt.show()
+import matplotlib.pyplot as plt
+from step5_create_masked import create_masked_stipple
+
+masked_stipple = create_masked_stipple(
+    stipple_pattern,
+    block_letter,
+    threshold=0.5,
+)
+
+fig, ax = plt.subplots(figsize=(6.5, 5))
+ax.imshow(masked_stipple, cmap="gray", vmin=0, vmax=1)
+ax.axis("off")
+ax.set_title(
+    "Step 5: Masked Stippled Image (Estimate)",
+    fontsize=14,
+    fontweight="bold",
+    pad=10,
+)
+plt.tight_layout()
+plt.show()
 ```
 
 ## Create the Final Statistics Meme ⚠️ **YOUR TASK**
@@ -378,22 +380,28 @@ print(f"  - Use mid_tone_center around {tonal_stats['mean']:.2f} to emphasize av
 ```{python}
 #| label: create-final-meme
 #| echo: false
-#| eval: false
+#| eval: true
 
-# UNCOMMENT AND USE THIS ONCE YOU'VE WRITTEN create_meme.py:
-# from create_meme import create_statistics_meme
-# 
-# # Create the final meme
-# create_statistics_meme(
-#     original_img=gray_image,
-#     stipple_img=stipple_pattern,
-#     block_letter_img=block_letter,
-#     masked_stipple_img=masked_stipple,
-#     output_path="my_statistics_meme.png",
-#     dpi=150,
-#     background_color="white"  # or "pink", "lightgray", etc.
-# )
+import base64
+import html
+from pathlib import Path
+
+from IPython.display import HTML, display
+from create_meme import create_statistics_meme
+
+meme_path = "statistics_meme.png"
+create_statistics_meme(
+    original_img=gray_image,
+    stipple_img=stipple_pattern,
+    block_letter_img=block_letter,
+    masked_stipple_img=masked_stipple,
+    output_path=meme_path,
+    dpi=150,
+    background_color="#FFE8F0",
+)
+display(Image(filename=meme_path))
 ```
+
 
 ## Your Final Submission
 

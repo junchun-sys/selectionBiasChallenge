@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.33">
+<meta name="generator" content="quarto-1.8.27">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -26,14 +26,15 @@ ul.task-list li input[type="checkbox"] {
 <script src="index_files/libs/clipboard/clipboard.min.js"></script>
 <script src="index_files/libs/quarto-html/quarto.js" type="module"></script>
 <script src="index_files/libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="index_files/libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="index_files/libs/quarto-html/popper.min.js"></script>
 <script src="index_files/libs/quarto-html/tippy.umd.min.js"></script>
 <script src="index_files/libs/quarto-html/anchor.min.js"></script>
 <link href="index_files/libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="index_files/libs/quarto-html/quarto-syntax-highlighting-ea385d0e468b0dd5ea5bf0780b1290d9.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="index_files/libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="index_files/libs/bootstrap/bootstrap.min.js"></script>
 <link href="index_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="index_files/libs/bootstrap/bootstrap-bb462d781dde1847d9e3ccf7736099dd.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="index_files/libs/bootstrap/bootstrap-9e3ffae467580fdb927a41352e75a2e0.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 
 
 </head>
@@ -72,7 +73,7 @@ ul.task-list li input[type="checkbox"] {
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-📊 Challenge Overview
+<span class="screen-reader-only">Important</span>📊 Challenge Overview
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -89,6 +90,12 @@ ul.task-list li input[type="checkbox"] {
 <li>Your final statistics meme (as a PNG file) using your own image</li>
 </ol>
 <p><strong>Key Learning:</strong> This challenge teaches you to write modular Python functions and assemble them into a complete workflow. You’ll learn to structure code professionally and create a memorable visual representation of selection bias.</p>
+<p><strong>Repository Information:</strong></p>
+<ul>
+<li><strong>Source/Starter File:</strong> Available in the main repository at <a href="https://github.com/flyaflya/selectionBiasChallenge">https://github.com/flyaflya/selectionBiasChallenge</a></li>
+<li><strong>Challenge Read Online:</strong> View the challenge instructions at <a href="https://flyaflya.github.io/selectionBiasChallenge">https://flyaflya.github.io/selectionBiasChallenge</a></li>
+<li><strong>Your Submission:</strong> Fork this challenge and create your GitHub Pages site at <code>https://[your-username].github.io/selectionBiasChallenge/</code></li>
+</ul>
 </div>
 </div>
 <section id="the-problem-visualizing-selection-bias" class="level2">
@@ -113,6 +120,38 @@ ul.task-list li input[type="checkbox"] {
 </figure>
 </div>
 <p><strong>Your challenge:</strong> Create a similar meme using your own image, with all code hidden in your <code>index.qmd</code> file. The final output should show only the meme image and a brief 1-3 sentence explanation of how it demonstrates selection bias.</p>
+</section>
+<section id="getting-started-repository-setup" class="level2">
+<h2 class="anchored" data-anchor-id="getting-started-repository-setup">Getting Started: Repository Setup 🚀</h2>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>📁 Repository Setup Instructions
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Step 1:</strong> Fork the starter repository:</p>
+<ul>
+<li>Navigate to <a href="https://github.com/flyaflya/selectionBiasChallenge">https://github.com/flyaflya/selectionBiasChallenge</a></li>
+<li>Fork the repository to your GitHub account (this creates <code>https://github.com/[your-username]/selectionBiasChallenge</code>)</li>
+</ul>
+<p><strong>Step 2:</strong> Clone your forked repository locally using Cursor (or VS Code)</p>
+<p><strong>Step 3:</strong> Set up GitHub Pages:</p>
+<ul>
+<li>Go to your repository settings (click the “Settings” tab in your GitHub repository)</li>
+<li>Scroll down to the “Pages” section in the left sidebar</li>
+<li>Under “Source”, select “Deploy from a branch”</li>
+<li>Choose “main” branch and “/ (root)” folder</li>
+<li>Click “Save”</li>
+<li>Your site will be available at: <code>https://[your-username].github.io/selectionBiasChallenge/</code></li>
+<li><strong>Note:</strong> It may take a few minutes for the site to become available after enabling Pages</li>
+</ul>
+<p><strong>Step 4:</strong> You’re ready to start! Use the <code>index.qmd</code> file as your starting point.</p>
+</div>
+</div>
 </section>
 <section id="workflow-overview" class="level2">
 <h2 class="anchored" data-anchor-id="workflow-overview">Workflow Overview</h2>
@@ -152,13 +191,13 @@ ul.task-list li input[type="checkbox"] {
 <p>Load an image, convert to grayscale, and resize to appropriate dimensions while maintaining aspect ratio.</p>
 <div id="cell-step1-prepare" class="cell" data-execution_count="1">
 <div class="cell-output cell-output-stdout">
-<pre><code>Image size: (375, 250) (no resizing needed)
-Final image shape: (375, 250) (should be 2D for grayscale)</code></pre>
+<pre><code>Resized image from (643, 669) to (492, 512) for processing
+Final image shape: (492, 512) (should be 2D for grayscale)</code></pre>
 </div>
 <div class="cell-output cell-output-display">
 <div id="step1-prepare" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
-<p><img src="index_files/figure-html/step1-prepare-output-2.png" width="301" height="470" class="figure-img"></p>
+<p><img src="index_files/figure-html/step1-prepare-output-2.png" width="459" height="470" class="figure-img"></p>
 <figcaption>Original image prepared for processing</figcaption>
 </figure>
 </div>
@@ -172,15 +211,15 @@ Final image shape: (375, 250) (should be 2D for grayscale)</code></pre>
 <div class="cell-output cell-output-stdout">
 <pre><code>Importance map computed
 Generating blue noise stippling pattern...
-Generated 7500 stipple points
-Stipple pattern shape: (375, 250)
-Number of stippled points (0.0 values): 7500
-Number of background points (1.0 values): 86250</code></pre>
+Generated 20152 stipple points
+Stipple pattern shape: (492, 512)
+Number of stippled points (0.0 values): 20152
+Number of background points (1.0 values): 231752</code></pre>
 </div>
 <div class="cell-output cell-output-display">
 <div id="step2-stipple" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
-<p><img src="index_files/figure-html/step2-stipple-output-2.png" width="301" height="470" class="figure-img"></p>
+<p><img src="index_files/figure-html/step2-stipple-output-2.png" width="459" height="470" class="figure-img"></p>
 <figcaption>Blue noise stippling pattern</figcaption>
 </figure>
 </div>
@@ -195,7 +234,7 @@ Number of background points (1.0 values): 86250</code></pre>
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-🔧 Optional Refinement Step
+<span class="screen-reader-only">Note</span>🔧 Optional Refinement Step
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -207,13 +246,13 @@ Number of background points (1.0 values): 86250</code></pre>
 <div id="cell-step3-tonal" class="cell" data-execution_count="3">
 <div class="cell-output cell-output-stdout">
 <pre><code>Created tonal analysis: grid 16×12
-Tonal statistics: mean=0.636, std=0.321
-Tone range: [0.072, 0.945]</code></pre>
+Tonal statistics: mean=0.668, std=0.226
+Tone range: [0.179, 0.902]</code></pre>
 </div>
 <div class="cell-output cell-output-display">
 <div id="step3-tonal" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
-<p><img src="index_files/figure-html/step3-tonal-output-2.png" width="404" height="470" class="figure-img"></p>
+<p><img src="index_files/figure-html/step3-tonal-output-2.png" width="459" height="470" class="figure-img"></p>
 <figcaption>Box-averaged tonal analysis showing brightness distribution</figcaption>
 </figure>
 </div>
@@ -221,15 +260,15 @@ Tone range: [0.072, 0.945]</code></pre>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 📊 Tonal Statistics for Parameter Tuning:
-  Mean brightness: 0.636
-  Standard deviation: 0.321
-  Brightness range: [0.072, 0.945]
+  Mean brightness: 0.668
+  Standard deviation: 0.226
+  Brightness range: [0.179, 0.902]
 
 💡 Tuning Tips:
   - If mean &lt; 0.4: Image is dark, consider lowering extreme_threshold_low
   - If mean &gt; 0.6: Image is light, consider raising extreme_threshold_high
   - If std &gt; 0.2: High contrast, may need stronger extreme_downweight
-  - Use mid_tone_center around 0.64 to emphasize average tones</code></pre>
+  - Use mid_tone_center around 0.67 to emphasize average tones</code></pre>
 </div>
 </div>
 </section>
@@ -241,7 +280,7 @@ Tone range: [0.072, 0.945]</code></pre>
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-🎯 Your Challenge: Write <code>step4_create_block_letter.py</code>
+<span class="screen-reader-only">Warning</span>🎯 Your Challenge: Write <code>step4_create_block_letter.py</code>
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -251,6 +290,16 @@ Tone range: [0.072, 0.945]</code></pre>
 </div>
 </div>
 <p><strong>Your code should go in a file called <code>step4_create_block_letter.py</code>.</strong> Once you’ve written it, you’ll use it like this:</p>
+<div id="cell-step4-block-letter" class="cell" data-execution_count="4">
+<div class="cell-output cell-output-display">
+<div id="step4-block-letter" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="index_files/figure-html/step4-block-letter-output-1.png" width="459" height="470" class="figure-img"></p>
+<figcaption>Block letter S representing selection bias</figcaption>
+</figure>
+</div>
+</div>
+</div>
 </section>
 <section id="step-5-create-masked-image-your-task" class="level2">
 <h2 class="anchored" data-anchor-id="step-5-create-masked-image-your-task">Step 5: Create Masked Image ⚠️ <strong>YOUR TASK</strong></h2>
@@ -260,7 +309,7 @@ Tone range: [0.072, 0.945]</code></pre>
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-🎯 Your Challenge: Write <code>step5_create_masked.py</code>
+<span class="screen-reader-only">Warning</span>🎯 Your Challenge: Write <code>step5_create_masked.py</code>
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -270,6 +319,16 @@ Tone range: [0.072, 0.945]</code></pre>
 </div>
 </div>
 <p><strong>Your code should go in a file called <code>step5_create_masked.py</code>.</strong> Once you’ve written it, you’ll use it like this:</p>
+<div id="cell-step5-masked" class="cell" data-execution_count="5">
+<div class="cell-output cell-output-display">
+<div id="step5-masked" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="index_files/figure-html/step5-masked-output-1.png" width="464" height="470" class="figure-img"></p>
+<figcaption>Masked stippled image showing selection bias effect</figcaption>
+</figure>
+</div>
+</div>
+</div>
 </section>
 <section id="create-the-final-statistics-meme-your-task" class="level2">
 <h2 class="anchored" data-anchor-id="create-the-final-statistics-meme-your-task">Create the Final Statistics Meme ⚠️ <strong>YOUR TASK</strong></h2>
@@ -279,7 +338,7 @@ Tone range: [0.072, 0.945]</code></pre>
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-🎯 Your Challenge: Write <code>create_meme.py</code>
+<span class="screen-reader-only">Warning</span>🎯 Your Challenge: Write <code>create_meme.py</code>
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -289,6 +348,16 @@ Tone range: [0.072, 0.945]</code></pre>
 </div>
 </div>
 <p><strong>Your code should go in a file called <code>create_meme.py</code>.</strong> Once you’ve written it, you’ll use it like this:</p>
+<div id="fig-statistics-meme-final" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Four panels: Reality, Your Model, Selection Bias, Estimate.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-statistics-meme-final-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="statistics_meme.png" class="img-fluid figure-img" style="width:100.0%" alt="Four panels: Reality, Your Model, Selection Bias, Estimate.">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-statistics-meme-final-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: Four-panel meme: Reality, Your Model, Selection Bias, Estimate
+</figcaption>
+</figure>
+</div>
 </section>
 <section id="your-final-submission" class="level2">
 <h2 class="anchored" data-anchor-id="your-final-submission">Your Final Submission</h2>
@@ -395,13 +464,14 @@ Tone range: [0.072, 0.945]</code></pre>
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy
