@@ -381,12 +381,9 @@ plt.show()
 #| label: create-final-meme
 #| echo: false
 #| eval: true
+#| fig-cap: "Four-panel meme: Reality, Your Model, Selection Bias, Estimate"
 
-import base64
-import html
-from pathlib import Path
-
-from IPython.display import HTML, display
+from IPython.display import Image, display
 from create_meme import create_statistics_meme
 
 meme_path = "statistics_meme.png"
