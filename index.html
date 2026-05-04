@@ -64,6 +64,9 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<p>This walkthrough builds a small <strong>selection bias</strong> meme from a single photo: prepare the image, turn it into a stippled “your model” view, summarize tone in a grid, draw an <strong>S</strong> for systematic missingness, mask the stipple through that shape, and assemble the four-panel punchline. Each step below shows one stage of that pipeline.</p>
+<section id="step-1-prepare-the-image" class="level2">
+<h2 class="anchored" data-anchor-id="step-1-prepare-the-image">Step 1: Prepare the image</h2>
 <div id="cell-step1-prepare" class="cell" data-fig-show="false" data-message="false" data-execution_count="1">
 <div class="cell-output cell-output-display">
 <div id="step1-prepare" class="quarto-figure quarto-figure-center anchored">
@@ -74,6 +77,9 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 </div>
+</section>
+<section id="step-2-stipple-the-image" class="level2">
+<h2 class="anchored" data-anchor-id="step-2-stipple-the-image">Step 2: Stipple the image</h2>
 <div id="cell-step2-stipple" class="cell" data-fig-show="false" data-message="false" data-execution_count="2">
 <div class="cell-output cell-output-display">
 <div id="step2-stipple" class="quarto-figure quarto-figure-center anchored">
@@ -84,16 +90,35 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 </div>
+</section>
+<section id="step-3-box-averaged-tonal-analysis" class="level2">
+<h2 class="anchored" data-anchor-id="step-3-box-averaged-tonal-analysis">Step 3: Box-averaged tonal analysis</h2>
+<div id="cell-step3-tonal" class="cell" data-fig-show="false" data-execution_count="3">
+<div class="cell-output cell-output-display">
+<div id="step3-tonal" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="index_files/figure-html/step3-tonal-output-1.png" width="459" height="470" class="figure-img"></p>
+<figcaption>Box-averaged tonal analysis showing brightness distribution</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="step-4-block-letter-systematic-missingness" class="level2">
+<h2 class="anchored" data-anchor-id="step-4-block-letter-systematic-missingness">Step 4: Block letter (systematic missingness)</h2>
 <div id="cell-step4-block-letter" class="cell" data-fig-show="false" data-execution_count="4">
 <div class="cell-output cell-output-display">
 <div id="step4-block-letter" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
-<p><img src="index_files/figure-html/step4-block-letter-output-1.png" width="489" height="470" class="figure-img"></p>
+<p><img src="index_files/figure-html/step4-block-letter-output-1.png" width="459" height="470" class="figure-img"></p>
 <figcaption>Block letter S representing selection bias</figcaption>
 </figure>
 </div>
 </div>
 </div>
+</section>
+<section id="step-5-masked-stipple-estimate" class="level2">
+<h2 class="anchored" data-anchor-id="step-5-masked-stipple-estimate">Step 5: Masked stipple (estimate)</h2>
 <div id="cell-step5-masked" class="cell" data-fig-show="false" data-execution_count="5">
 <div class="cell-output cell-output-display">
 <div id="step5-masked" class="quarto-figure quarto-figure-center anchored">
@@ -104,6 +129,9 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 </div>
+</section>
+<section id="final-meme" class="level2">
+<h2 class="anchored" data-anchor-id="final-meme">Final meme</h2>
 <div id="cell-create-final-meme" class="cell" data-fig-show="false" data-message="false" data-execution_count="6">
 <div class="cell-output cell-output-display">
 <div id="create-final-meme" class="quarto-figure quarto-figure-center anchored">
@@ -114,7 +142,8 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 </div>
-<p>The four panels contrast the full scene (<strong>Reality</strong>) with a dot-based stand-in for your data (<strong>Your Model</strong>). The <strong>S</strong> marks <em>systematic</em> missingness—observations drop out along a fixed pattern, not at random—so the last panel (<strong>Estimate</strong>) no longer matches the population you started from. That is selection bias: when who or what enters the sample follows a rule, conclusions can be systematically wrong for the group you intended to describe.</p>
+<p>The four panels contrast the full scene (<strong>Reality</strong>) with a dot-based stand-in for your data (<strong>Your Model</strong>). The <strong>S</strong> marks <em>systematic</em> missingness—observations drop out along a fixed pattern, not at random, so the last panel (<strong>Estimate</strong>) no longer matches the population you started from. That is selection bias: when who or what enters the sample follows a rule, conclusions can be systematically wrong for the group you intended to describe.</p>
+</section>
 
 </main>
 <!-- /main column -->
