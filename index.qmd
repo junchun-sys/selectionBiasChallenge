@@ -1,6 +1,5 @@
 ---
-title: "Selection Bias & Missing Data Challenge"
-subtitle: "Creating a Statistics Meme: Write Your Own Functions"
+title: "Selection Bias Meme"
 format:
   html: default
 execute:
@@ -8,126 +7,11 @@ execute:
   eval: true
 ---
 
-# 🎨 Selection Bias & Missing Data Challenge
-
-::: {.callout-important}
-## 📊 Challenge Overview
-
-**Your Task:** Create a four-panel statistics meme demonstrating selection bias. You'll write three Python functions yourself to complete the workflow, then assemble them into a professional meme.
-
-**Deliverables:**
-
-1. Three Python functions you write yourself:
-   - `step4_create_block_letter.py` - Create a block letter "S" matching image dimensions
-   - `step5_create_masked.py` - Apply the letter mask to the stippled image
-   - `create_meme.py` - Assemble all components into the four-panel meme
-2. A complete `index.qmd` file that uses all functions to generate your meme
-3. Your final statistics meme (as a PNG file) using your own image
-
-**Key Learning:** This challenge teaches you to write modular Python functions and assemble them into a complete workflow. You'll learn to structure code professionally and create a memorable visual representation of selection bias.
-
-**Repository Information:**
-
-- **Source/Starter File:** Available in the main repository at [https://github.com/flyaflya/selectionBiasChallenge](https://github.com/flyaflya/selectionBiasChallenge)
-- **Challenge Read Online:** View the challenge instructions at [https://flyaflya.github.io/selectionBiasChallenge](https://flyaflya.github.io/selectionBiasChallenge)
-- **Your Submission:** Fork this challenge and create your GitHub Pages site at `https://[your-username].github.io/selectionBiasChallenge/`
-:::
-
-## The Problem: Visualizing Selection Bias
-
-Selection bias occurs when observed data isn't representative of the population. Your meme will demonstrate this concept through visual metaphor:
-
-- **Reality**: Your original image represents the true population
-- **Your Model**: Your stippled image represents your data collection (sampling)
-- **Selection Bias**: A bold letter "S" represents a systematic pattern of missing data
-- **Estimate**: Stippled image with "S" mask applied shows the biased estimate—what you see when selection bias removes data points in a systematic pattern
-
-**Key Concept:** Images are simply matrices—2D arrays where each value represents a pixel (0.0 = black, 1.0 = white). Your stippled image is a matrix with black dots (data points) on a white background. Selection bias removes some of these pixels (data points) in a systematic pattern (the "S"), creating a biased estimate.
-
-**Key Insight:** When data is missing in a systematic pattern (not random), your estimates become biased. The "S" shape makes it visually obvious that the missing data follows a pattern, just like real selection bias in statistics.
-
-## Example Output
-
-Here's what your final meme should look like:
-
-![Four-panel statistics meme showing Reality (original image), Your Model (stippled version), Selection Bias (letter S), and Estimate (masked stippled image)](statistics_meme.png)
-
-**Your challenge:** Create a similar meme using your own image, with all code hidden in your `index.qmd` file. The final output should show only the meme image and a brief 1-3 sentence explanation of how it demonstrates selection bias.
-
-## Getting Started: Repository Setup 🚀
-
-::: {.callout-important}
-## 📁 Repository Setup Instructions
-
-**Step 1:** Fork the starter repository:
-
-- Navigate to [https://github.com/flyaflya/selectionBiasChallenge](https://github.com/flyaflya/selectionBiasChallenge)
-- Fork the repository to your GitHub account (this creates `https://github.com/[your-username]/selectionBiasChallenge`)
-
-**Step 2:** Clone your forked repository locally using Cursor (or VS Code)
-
-**Step 3:** Set up GitHub Pages:
-
-- Go to your repository settings (click the "Settings" tab in your GitHub repository)
-- Scroll down to the "Pages" section in the left sidebar
-- Under "Source", select "Deploy from a branch"
-- Choose "main" branch and "/ (root)" folder
-- Click "Save"
-- Your site will be available at: `https://[your-username].github.io/selectionBiasChallenge/`
-- **Note:** It may take a few minutes for the site to become available after enabling Pages
-
-**Step 4:** You're ready to start! Use the `index.qmd` file as your starting point.
-:::
-
-## Workflow Overview
-
-This challenge is organized into discrete steps. Steps 1-3 are provided for you. **You must write Steps 4-6 yourself:**
-
-1. **Step 1**: Prepare black and white image (provided) ✅
-2. **Step 2**: Create stippled image using blue noise stippling (provided) ✅
-3. **Step 3**: Create tonal analysis (optional refinement step, provided) ✅
-4. **Step 4**: Create block letter "S" matching image dimensions (**YOU WRITE THIS**) ⚠️
-5. **Step 5**: Create masked image by applying the letter mask to the stippled image (**YOU WRITE THIS**) ⚠️
-6. **Final**: Assemble all components into the four-panel meme (**YOU WRITE THIS**) ⚠️
-
-**Note:** Step 3 is optional but recommended. It helps you understand your image's brightness distribution and refine the stippling parameters in Step 2 for better results.
-
-## Understanding the Workflow
-
-This challenge uses a modular design where each step is implemented as a discrete function in a separate file. This structure provides several benefits:
-
-### Modular Design Benefits
-
-1. **Modularity**: Each step can be modified independently
-2. **Reusability**: Functions can be used in other projects
-3. **Testability**: Each function can be tested separately
-4. **Clarity**: The workflow is easy to understand and follow
-5. **Maintainability**: Changes to one step don't affect others
-
-### Function Files
-
-**Steps you'll use (provided):**
-- **`step1_prepare_image.py`**: Image loading and preprocessing
-- **`step2_create_stipple.py`**: Blue noise stippling algorithm
-- **`step3_create_tonal.py`**: Tonal analysis (optional)
-
-**Steps you'll write:**
-- **`step4_create_block_letter.py`**: Block letter generation ⚠️
-- **`step5_create_masked.py`**: Mask application ⚠️
-- **`create_meme.py`**: Final assembly and visualization ⚠️
-
-**Supporting functions (provided):**
-- **`importance_map.py`**: Computes importance map for stippling
-- **`stippling_functions.py`**: Core stippling algorithm functions
-
-## Step 1: Prepare Image
-
-Load an image, convert to grayscale, and resize to appropriate dimensions while maintaining aspect ratio.
-
 ```{python}
 #| label: step1-prepare
 #| echo: false
 #| fig-cap: "Original image prepared for processing"
+#| fig-show: false
 
 import numpy as np
 import matplotlib.pyplot as plt
@@ -147,16 +31,13 @@ plt.tight_layout()
 plt.show()
 ```
 
-## Step 2: Create Stippled Image
-
-Generate a blue noise stippling pattern from the prepared image. This creates a pattern of dots that preserves visual information while maintaining good spatial distribution.
-
 ```{python}
 #| label: step2-stipple
 #| echo: false
 #| fig-cap: "Blue noise stippling pattern"
 #| message: false
 #| warning: false
+#| fig-show: false
 
 from step2_create_stipple import create_stipple
 
@@ -182,26 +63,11 @@ plt.tight_layout()
 plt.show()
 ```
 
-## Step 3: Create Tonal Analysis (Optional Refinement Step)
-
-::: {.callout-note}
-## 🔧 Optional Refinement Step
-
-**Step 3 is optional** but highly recommended! It creates a box-averaged tonal analysis that helps you understand the brightness distribution across your image. Use this information to **tune the stippling parameters in Step 2** for better results.
-
-**How to use it:**
-- Analyze the tonal distribution to identify key brightness ranges
-- Adjust `extreme_threshold_low` and `extreme_threshold_high` based on your image's tone distribution
-- Tune `mid_tone_center` to match important features (e.g., skin tones around 0.7)
-- Refine `extreme_downweight` based on how much you want to reduce stipples in extreme regions
-:::
-
-Create a tonal analysis by dividing the image into a grid and computing average brightness in each section. This visualizes the distribution of tones and helps identify which brightness ranges are most important.
-
 ```{python}
 #| label: step3-tonal
 #| echo: false
 #| fig-cap: "Box-averaged tonal analysis showing brightness distribution"
+#| output: false
 
 from step3_create_tonal import create_tonal
 import matplotlib.pyplot as plt
@@ -257,33 +123,11 @@ print(f"  - If std > 0.2: High contrast, may need stronger extreme_downweight")
 print(f"  - Use mid_tone_center around {tonal_stats['mean']:.2f} to emphasize average tones")
 ```
 
-## Step 4: Create Block Letter "S" ⚠️ **YOUR TASK**
-
-::: {.callout-warning}
-## 🎯 Your Challenge: Write `step4_create_block_letter.py`
-
-**Task:** Create a function `create_block_letter_s()` that generates a block letter "S" matching your image dimensions.
-
-**Requirements:**
-- Function signature: `create_block_letter_s(height: int, width: int, letter: str = "S", font_size_ratio: float = 0.9) -> np.ndarray`
-- Returns a 2D numpy array (height × width) with values in [0, 1]
-- The letter should be black (0.0) on a white background (1.0)
-- The letter should be centered and scaled appropriately to fit within the image
-- Use PIL/Pillow's ImageDraw or similar to render the letter
-
-**Hints:**
-- You can use `PIL.Image` and `PIL.ImageDraw` to draw text
-- Try multiple font paths (e.g., system fonts) if one doesn't work
-- Make the letter bold and large enough to be clearly visible
-- The letter represents the "selection bias" pattern in your meme
-:::
-
-**Your code should go in a file called `step4_create_block_letter.py`.** Once you've written it, you'll use it like this:
-
 ```{python}
 #| label: step4-block-letter
 #| echo: false
 #| fig-cap: "Block letter S representing selection bias"
+#| fig-show: false
 
 import matplotlib.pyplot as plt
 from step4_create_block_letter import create_block_letter_s
@@ -304,32 +148,11 @@ plt.tight_layout()
 plt.show()
 ```
 
-## Step 5: Create Masked Image ⚠️ **YOUR TASK**
-
-::: {.callout-warning}
-## 🎯 Your Challenge: Write `step5_create_masked.py`
-
-**Task:** Create a function `create_masked_stipple()` that applies the block letter mask to the stippled image.
-
-**Requirements:**
-- Function signature: `create_masked_stipple(stipple_img: np.ndarray, mask_img: np.ndarray, threshold: float = 0.5) -> np.ndarray`
-- Returns a 2D numpy array with the same shape as the input images
-- Where the mask is dark (below threshold), remove stipples (set to white/1.0)
-- Where the mask is light (above threshold), keep the stipples as they are
-- This creates the "biased estimate" by systematically removing data points
-
-**Hints:**
-- The mask image has values in [0, 1] where 0.0 = black (mask area) and 1.0 = white (keep area)
-- Use numpy boolean indexing or np.where() to apply the mask
-- The threshold determines what counts as "part of the mask"
-:::
-
-**Your code should go in a file called `step5_create_masked.py`.** Once you've written it, you'll use it like this:
-
 ```{python}
 #| label: step5-masked
 #| echo: false
 #| fig-cap: "Masked stippled image showing selection bias effect"
+#| fig-show: false
 
 import matplotlib.pyplot as plt
 from step5_create_masked import create_masked_stipple
@@ -353,30 +176,6 @@ plt.tight_layout()
 plt.show()
 ```
 
-## Create the Final Statistics Meme ⚠️ **YOUR TASK**
-
-::: {.callout-warning}
-## 🎯 Your Challenge: Write `create_meme.py`
-
-**Task:** Create a function `create_statistics_meme()` that assembles all four panels into a professional-looking meme.
-
-**Requirements:**
-- Function signature: `create_statistics_meme(original_img: np.ndarray, stipple_img: np.ndarray, block_letter_img: np.ndarray, masked_stipple_img: np.ndarray, output_path: str, dpi: int = 150, background_color: str = "white") -> None`
-- Creates a 1×4 layout (four panels side by side)
-- Each panel should be labeled: "Reality", "Your Model", "Selection Bias", "Estimate"
-- Save the result as a PNG file
-- Make it look professional with good spacing, labels, and layout
-
-**Hints:**
-- Use matplotlib's `subplots()` or `GridSpec` to create the layout
-- Add text labels above or below each panel
-- Consider adding a border or background color
-- Use high DPI (150-300) for publication quality
-- Make sure all images are the same size or handle resizing appropriately
-:::
-
-**Your code should go in a file called `create_meme.py`.** Once you've written it, you'll use it like this:
-
 ```{python}
 #| label: create-final-meme
 #| echo: false
@@ -399,66 +198,4 @@ create_statistics_meme(
 display(Image(filename=meme_path))
 ```
 
-
-## Your Final Submission
-
-### Complete Checklist
-
-To complete this challenge, you must:
-
-1. ✅ **Use Step 1** to prepare your own image (with your own image file)
-2. ✅ **Use Step 2** to generate a stippled image using blue noise stippling
-3. ⭐ **Optionally use Step 3** to analyze tonal distribution and refine Step 2 parameters (recommended)
-4. ⚠️ **Write Step 4**: Create `step4_create_block_letter.py` to generate the block letter "S"
-5. ⚠️ **Write Step 5**: Create `step5_create_masked.py` to apply the mask
-6. ⚠️ **Write Final Step**: Create `create_meme.py` to assemble the four-panel meme
-7. ✅ **Create a complete `index.qmd`** that uses all functions (with code hidden)
-8. ✅ **Generate your final meme** using your own image
-9. ✅ **Include a brief explanation** (1-3 sentences) of how the meme demonstrates selection bias
-
-### Final Output Requirements
-
-**Important:** All code should be hidden (`echo: false`) in your final `index.qmd` output. The rendered HTML should show only:
-- The final meme image
-- A brief explanation (1-3 sentences) of how it demonstrates selection bias
-
-### Template for Final Section
-
-Here's a template for your final section:
-
-```{python}
-#| label: final-meme
-#| echo: false
-#| eval: false
-#| fig-cap: "Statistics meme demonstrating selection bias"
-
-# Your code to create and display the meme goes here
-# (all the steps above, uncommented and working)
-
-# Display the final meme
-# from IPython.display import Image, display
-# display(Image("my_statistics_meme.png"))
-```
-
-### Example Explanation
-
-Your explanation should be 1-3 sentences. Here's an example:
-
-> This meme demonstrates selection bias by showing how systematic missing data patterns distort our understanding of reality. The original image (Reality) represents the true population, while the stippled version (Your Model) shows our data collection. When selection bias removes data points in a systematic "S" pattern, the resulting estimate becomes biased and no longer represents the true population, just as missing data in real-world studies can lead to incorrect conclusions.
-
-## Tips for Success
-
-1. **Image Selection**: Choose an image with good contrast for best stippling results
-2. **Use Tonal Analysis**: Run Step 3 to understand your image's brightness distribution, then refine Step 2 parameters
-3. **Function Design**: Write clean, well-documented functions with clear parameter types and return values
-4. **Test Incrementally**: Test each function separately before integrating them
-5. **Professional Output**: Make your meme look polished with good labels, spacing, and layout
-6. **Code Organization**: Keep your functions in separate `.py` files as specified
-7. **Documentation**: Add docstrings to your functions explaining parameters and return values
-
-## Conclusion
-
-By completing this challenge, you'll have created a memorable visual representation of selection bias that demonstrates how systematic missing data patterns can distort our understanding of reality. The skills you've practiced—writing modular Python functions, image processing, and creating professional visualizations—are directly applicable to real-world data analysis projects.
-
-As you work with real datasets, remember the lesson of this meme: when data is missing in a systematic pattern rather than randomly, your estimates become biased. Recognizing and addressing selection bias is crucial for drawing valid conclusions from your data.
-
+The four panels contrast the full scene (**Reality**) with a dot-based stand-in for your data (**Your Model**). The **S** marks *systematic* missingness—observations drop out along a fixed pattern, not at random—so the last panel (**Estimate**) no longer matches the population you started from. That is selection bias: when who or what enters the sample follows a rule, conclusions can be systematically wrong for the group you intended to describe.

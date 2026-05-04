@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Selection Bias &amp; Missing Data Challenge</title>
+<title>Selection Bias Meme</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -47,8 +47,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Selection Bias &amp; Missing Data Challenge</h1>
-<p class="subtitle lead">Creating a Statistics Meme: Write Your Own Functions</p>
+<h1 class="title">Selection Bias Meme</h1>
 </div>
 
 
@@ -65,131 +64,7 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="selection-bias-missing-data-challenge" class="level1">
-<h1>🎨 Selection Bias &amp; Missing Data Challenge</h1>
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Important</span>📊 Challenge Overview
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p><strong>Your Task:</strong> Create a four-panel statistics meme demonstrating selection bias. You’ll write three Python functions yourself to complete the workflow, then assemble them into a professional meme.</p>
-<p><strong>Deliverables:</strong></p>
-<ol type="1">
-<li>Three Python functions you write yourself:
-<ul>
-<li><code>step4_create_block_letter.py</code> - Create a block letter “S” matching image dimensions</li>
-<li><code>step5_create_masked.py</code> - Apply the letter mask to the stippled image</li>
-<li><code>create_meme.py</code> - Assemble all components into the four-panel meme</li>
-</ul></li>
-<li>A complete <code>index.qmd</code> file that uses all functions to generate your meme</li>
-<li>Your final statistics meme (as a PNG file) using your own image</li>
-</ol>
-<p><strong>Key Learning:</strong> This challenge teaches you to write modular Python functions and assemble them into a complete workflow. You’ll learn to structure code professionally and create a memorable visual representation of selection bias.</p>
-<p><strong>Repository Information:</strong></p>
-<ul>
-<li><strong>Source/Starter File:</strong> Available in the main repository at <a href="https://github.com/flyaflya/selectionBiasChallenge">https://github.com/flyaflya/selectionBiasChallenge</a></li>
-<li><strong>Challenge Read Online:</strong> View the challenge instructions at <a href="https://flyaflya.github.io/selectionBiasChallenge">https://flyaflya.github.io/selectionBiasChallenge</a></li>
-<li><strong>Your Submission:</strong> Fork this challenge and create your GitHub Pages site at <code>https://[your-username].github.io/selectionBiasChallenge/</code></li>
-</ul>
-</div>
-</div>
-<section id="the-problem-visualizing-selection-bias" class="level2">
-<h2 class="anchored" data-anchor-id="the-problem-visualizing-selection-bias">The Problem: Visualizing Selection Bias</h2>
-<p>Selection bias occurs when observed data isn’t representative of the population. Your meme will demonstrate this concept through visual metaphor:</p>
-<ul>
-<li><strong>Reality</strong>: Your original image represents the true population</li>
-<li><strong>Your Model</strong>: Your stippled image represents your data collection (sampling)</li>
-<li><strong>Selection Bias</strong>: A bold letter “S” represents a systematic pattern of missing data</li>
-<li><strong>Estimate</strong>: Stippled image with “S” mask applied shows the biased estimate—what you see when selection bias removes data points in a systematic pattern</li>
-</ul>
-<p><strong>Key Concept:</strong> Images are simply matrices—2D arrays where each value represents a pixel (0.0 = black, 1.0 = white). Your stippled image is a matrix with black dots (data points) on a white background. Selection bias removes some of these pixels (data points) in a systematic pattern (the “S”), creating a biased estimate.</p>
-<p><strong>Key Insight:</strong> When data is missing in a systematic pattern (not random), your estimates become biased. The “S” shape makes it visually obvious that the missing data follows a pattern, just like real selection bias in statistics.</p>
-</section>
-<section id="example-output" class="level2">
-<h2 class="anchored" data-anchor-id="example-output">Example Output</h2>
-<p>Here’s what your final meme should look like:</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="statistics_meme.png" class="img-fluid figure-img"></p>
-<figcaption>Four-panel statistics meme showing Reality (original image), Your Model (stippled version), Selection Bias (letter S), and Estimate (masked stippled image)</figcaption>
-</figure>
-</div>
-<p><strong>Your challenge:</strong> Create a similar meme using your own image, with all code hidden in your <code>index.qmd</code> file. The final output should show only the meme image and a brief 1-3 sentence explanation of how it demonstrates selection bias.</p>
-</section>
-<section id="getting-started-repository-setup" class="level2">
-<h2 class="anchored" data-anchor-id="getting-started-repository-setup">Getting Started: Repository Setup 🚀</h2>
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Important</span>📁 Repository Setup Instructions
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p><strong>Step 1:</strong> Fork the starter repository:</p>
-<ul>
-<li>Navigate to <a href="https://github.com/flyaflya/selectionBiasChallenge">https://github.com/flyaflya/selectionBiasChallenge</a></li>
-<li>Fork the repository to your GitHub account (this creates <code>https://github.com/[your-username]/selectionBiasChallenge</code>)</li>
-</ul>
-<p><strong>Step 2:</strong> Clone your forked repository locally using Cursor (or VS Code)</p>
-<p><strong>Step 3:</strong> Set up GitHub Pages:</p>
-<ul>
-<li>Go to your repository settings (click the “Settings” tab in your GitHub repository)</li>
-<li>Scroll down to the “Pages” section in the left sidebar</li>
-<li>Under “Source”, select “Deploy from a branch”</li>
-<li>Choose “main” branch and “/ (root)” folder</li>
-<li>Click “Save”</li>
-<li>Your site will be available at: <code>https://[your-username].github.io/selectionBiasChallenge/</code></li>
-<li><strong>Note:</strong> It may take a few minutes for the site to become available after enabling Pages</li>
-</ul>
-<p><strong>Step 4:</strong> You’re ready to start! Use the <code>index.qmd</code> file as your starting point.</p>
-</div>
-</div>
-</section>
-<section id="workflow-overview" class="level2">
-<h2 class="anchored" data-anchor-id="workflow-overview">Workflow Overview</h2>
-<p>This challenge is organized into discrete steps. Steps 1-3 are provided for you. <strong>You must write Steps 4-6 yourself:</strong></p>
-<ol type="1">
-<li><strong>Step 1</strong>: Prepare black and white image (provided) ✅</li>
-<li><strong>Step 2</strong>: Create stippled image using blue noise stippling (provided) ✅</li>
-<li><strong>Step 3</strong>: Create tonal analysis (optional refinement step, provided) ✅</li>
-<li><strong>Step 4</strong>: Create block letter “S” matching image dimensions (<strong>YOU WRITE THIS</strong>) ⚠️</li>
-<li><strong>Step 5</strong>: Create masked image by applying the letter mask to the stippled image (<strong>YOU WRITE THIS</strong>) ⚠️</li>
-<li><strong>Final</strong>: Assemble all components into the four-panel meme (<strong>YOU WRITE THIS</strong>) ⚠️</li>
-</ol>
-<p><strong>Note:</strong> Step 3 is optional but recommended. It helps you understand your image’s brightness distribution and refine the stippling parameters in Step 2 for better results.</p>
-</section>
-<section id="understanding-the-workflow" class="level2">
-<h2 class="anchored" data-anchor-id="understanding-the-workflow">Understanding the Workflow</h2>
-<p>This challenge uses a modular design where each step is implemented as a discrete function in a separate file. This structure provides several benefits:</p>
-<section id="modular-design-benefits" class="level3">
-<h3 class="anchored" data-anchor-id="modular-design-benefits">Modular Design Benefits</h3>
-<ol type="1">
-<li><strong>Modularity</strong>: Each step can be modified independently</li>
-<li><strong>Reusability</strong>: Functions can be used in other projects</li>
-<li><strong>Testability</strong>: Each function can be tested separately</li>
-<li><strong>Clarity</strong>: The workflow is easy to understand and follow</li>
-<li><strong>Maintainability</strong>: Changes to one step don’t affect others</li>
-</ol>
-</section>
-<section id="function-files" class="level3">
-<h3 class="anchored" data-anchor-id="function-files">Function Files</h3>
-<p><strong>Steps you’ll use (provided):</strong> - <strong><code>step1_prepare_image.py</code></strong>: Image loading and preprocessing - <strong><code>step2_create_stipple.py</code></strong>: Blue noise stippling algorithm - <strong><code>step3_create_tonal.py</code></strong>: Tonal analysis (optional)</p>
-<p><strong>Steps you’ll write:</strong> - <strong><code>step4_create_block_letter.py</code></strong>: Block letter generation ⚠️ - <strong><code>step5_create_masked.py</code></strong>: Mask application ⚠️ - <strong><code>create_meme.py</code></strong>: Final assembly and visualization ⚠️</p>
-<p><strong>Supporting functions (provided):</strong> - <strong><code>importance_map.py</code></strong>: Computes importance map for stippling - <strong><code>stippling_functions.py</code></strong>: Core stippling algorithm functions</p>
-</section>
-</section>
-<section id="step-1-prepare-image" class="level2">
-<h2 class="anchored" data-anchor-id="step-1-prepare-image">Step 1: Prepare Image</h2>
-<p>Load an image, convert to grayscale, and resize to appropriate dimensions while maintaining aspect ratio.</p>
-<div id="cell-step1-prepare" class="cell" data-execution_count="1">
+<div id="cell-step1-prepare" class="cell" data-fig-show="false" data-execution_count="1">
 <div class="cell-output cell-output-stdout">
 <pre><code>Resized image from (643, 669) to (492, 512) for processing
 Final image shape: (492, 512) (should be 2D for grayscale)</code></pre>
@@ -203,11 +78,7 @@ Final image shape: (492, 512) (should be 2D for grayscale)</code></pre>
 </div>
 </div>
 </div>
-</section>
-<section id="step-2-create-stippled-image" class="level2">
-<h2 class="anchored" data-anchor-id="step-2-create-stippled-image">Step 2: Create Stippled Image</h2>
-<p>Generate a blue noise stippling pattern from the prepared image. This creates a pattern of dots that preserves visual information while maintaining good spatial distribution.</p>
-<div id="cell-step2-stipple" class="cell" data-message="false" data-execution_count="2">
+<div id="cell-step2-stipple" class="cell" data-fig-show="false" data-message="false" data-execution_count="2">
 <div class="cell-output cell-output-stdout">
 <pre><code>Importance map computed
 Generating blue noise stippling pattern...
@@ -225,72 +96,7 @@ Number of background points (1.0 values): 231752</code></pre>
 </div>
 </div>
 </div>
-</section>
-<section id="step-3-create-tonal-analysis-optional-refinement-step" class="level2">
-<h2 class="anchored" data-anchor-id="step-3-create-tonal-analysis-optional-refinement-step">Step 3: Create Tonal Analysis (Optional Refinement Step)</h2>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>🔧 Optional Refinement Step
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p><strong>Step 3 is optional</strong> but highly recommended! It creates a box-averaged tonal analysis that helps you understand the brightness distribution across your image. Use this information to <strong>tune the stippling parameters in Step 2</strong> for better results.</p>
-<p><strong>How to use it:</strong> - Analyze the tonal distribution to identify key brightness ranges - Adjust <code>extreme_threshold_low</code> and <code>extreme_threshold_high</code> based on your image’s tone distribution - Tune <code>mid_tone_center</code> to match important features (e.g., skin tones around 0.7) - Refine <code>extreme_downweight</code> based on how much you want to reduce stipples in extreme regions</p>
-</div>
-</div>
-<p>Create a tonal analysis by dividing the image into a grid and computing average brightness in each section. This visualizes the distribution of tones and helps identify which brightness ranges are most important.</p>
-<div id="cell-step3-tonal" class="cell" data-execution_count="3">
-<div class="cell-output cell-output-stdout">
-<pre><code>Created tonal analysis: grid 16×12
-Tonal statistics: mean=0.668, std=0.226
-Tone range: [0.179, 0.902]</code></pre>
-</div>
-<div class="cell-output cell-output-display">
-<div id="step3-tonal" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="index_files/figure-html/step3-tonal-output-2.png" width="459" height="470" class="figure-img"></p>
-<figcaption>Box-averaged tonal analysis showing brightness distribution</figcaption>
-</figure>
-</div>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code>
-📊 Tonal Statistics for Parameter Tuning:
-  Mean brightness: 0.668
-  Standard deviation: 0.226
-  Brightness range: [0.179, 0.902]
-
-💡 Tuning Tips:
-  - If mean &lt; 0.4: Image is dark, consider lowering extreme_threshold_low
-  - If mean &gt; 0.6: Image is light, consider raising extreme_threshold_high
-  - If std &gt; 0.2: High contrast, may need stronger extreme_downweight
-  - Use mid_tone_center around 0.67 to emphasize average tones</code></pre>
-</div>
-</div>
-</section>
-<section id="step-4-create-block-letter-s-your-task" class="level2">
-<h2 class="anchored" data-anchor-id="step-4-create-block-letter-s-your-task">Step 4: Create Block Letter “S” ⚠️ <strong>YOUR TASK</strong></h2>
-<div class="callout callout-style-default callout-warning callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Warning</span>🎯 Your Challenge: Write <code>step4_create_block_letter.py</code>
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p><strong>Task:</strong> Create a function <code>create_block_letter_s()</code> that generates a block letter “S” matching your image dimensions.</p>
-<p><strong>Requirements:</strong> - Function signature: <code>create_block_letter_s(height: int, width: int, letter: str = "S", font_size_ratio: float = 0.9) -&gt; np.ndarray</code> - Returns a 2D numpy array (height × width) with values in [0, 1] - The letter should be black (0.0) on a white background (1.0) - The letter should be centered and scaled appropriately to fit within the image - Use PIL/Pillow’s ImageDraw or similar to render the letter</p>
-<p><strong>Hints:</strong> - You can use <code>PIL.Image</code> and <code>PIL.ImageDraw</code> to draw text - Try multiple font paths (e.g., system fonts) if one doesn’t work - Make the letter bold and large enough to be clearly visible - The letter represents the “selection bias” pattern in your meme</p>
-</div>
-</div>
-<p><strong>Your code should go in a file called <code>step4_create_block_letter.py</code>.</strong> Once you’ve written it, you’ll use it like this:</p>
-<div id="cell-step4-block-letter" class="cell" data-execution_count="4">
+<div id="cell-step4-block-letter" class="cell" data-fig-show="false" data-execution_count="4">
 <div class="cell-output cell-output-display">
 <div id="step4-block-letter" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
@@ -300,26 +106,7 @@ Tone range: [0.179, 0.902]</code></pre>
 </div>
 </div>
 </div>
-</section>
-<section id="step-5-create-masked-image-your-task" class="level2">
-<h2 class="anchored" data-anchor-id="step-5-create-masked-image-your-task">Step 5: Create Masked Image ⚠️ <strong>YOUR TASK</strong></h2>
-<div class="callout callout-style-default callout-warning callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Warning</span>🎯 Your Challenge: Write <code>step5_create_masked.py</code>
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p><strong>Task:</strong> Create a function <code>create_masked_stipple()</code> that applies the block letter mask to the stippled image.</p>
-<p><strong>Requirements:</strong> - Function signature: <code>create_masked_stipple(stipple_img: np.ndarray, mask_img: np.ndarray, threshold: float = 0.5) -&gt; np.ndarray</code> - Returns a 2D numpy array with the same shape as the input images - Where the mask is dark (below threshold), remove stipples (set to white/1.0) - Where the mask is light (above threshold), keep the stipples as they are - This creates the “biased estimate” by systematically removing data points</p>
-<p><strong>Hints:</strong> - The mask image has values in [0, 1] where 0.0 = black (mask area) and 1.0 = white (keep area) - Use numpy boolean indexing or np.where() to apply the mask - The threshold determines what counts as “part of the mask”</p>
-</div>
-</div>
-<p><strong>Your code should go in a file called <code>step5_create_masked.py</code>.</strong> Once you’ve written it, you’ll use it like this:</p>
-<div id="cell-step5-masked" class="cell" data-execution_count="5">
+<div id="cell-step5-masked" class="cell" data-fig-show="false" data-execution_count="5">
 <div class="cell-output cell-output-display">
 <div id="step5-masked" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
@@ -329,25 +116,6 @@ Tone range: [0.179, 0.902]</code></pre>
 </div>
 </div>
 </div>
-</section>
-<section id="create-the-final-statistics-meme-your-task" class="level2">
-<h2 class="anchored" data-anchor-id="create-the-final-statistics-meme-your-task">Create the Final Statistics Meme ⚠️ <strong>YOUR TASK</strong></h2>
-<div class="callout callout-style-default callout-warning callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Warning</span>🎯 Your Challenge: Write <code>create_meme.py</code>
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p><strong>Task:</strong> Create a function <code>create_statistics_meme()</code> that assembles all four panels into a professional-looking meme.</p>
-<p><strong>Requirements:</strong> - Function signature: <code>create_statistics_meme(original_img: np.ndarray, stipple_img: np.ndarray, block_letter_img: np.ndarray, masked_stipple_img: np.ndarray, output_path: str, dpi: int = 150, background_color: str = "white") -&gt; None</code> - Creates a 1×4 layout (four panels side by side) - Each panel should be labeled: “Reality”, “Your Model”, “Selection Bias”, “Estimate” - Save the result as a PNG file - Make it look professional with good spacing, labels, and layout</p>
-<p><strong>Hints:</strong> - Use matplotlib’s <code>subplots()</code> or <code>GridSpec</code> to create the layout - Add text labels above or below each panel - Consider adding a border or background color - Use high DPI (150-300) for publication quality - Make sure all images are the same size or handle resizing appropriately</p>
-</div>
-</div>
-<p><strong>Your code should go in a file called <code>create_meme.py</code>.</strong> Once you’ve written it, you’ll use it like this:</p>
 <div id="cell-create-final-meme" class="cell" data-execution_count="6">
 <div class="cell-output cell-output-display">
 <div id="create-final-meme" class="quarto-figure quarto-figure-center anchored">
@@ -358,58 +126,7 @@ Tone range: [0.179, 0.902]</code></pre>
 </div>
 </div>
 </div>
-</section>
-<section id="your-final-submission" class="level2">
-<h2 class="anchored" data-anchor-id="your-final-submission">Your Final Submission</h2>
-<section id="complete-checklist" class="level3">
-<h3 class="anchored" data-anchor-id="complete-checklist">Complete Checklist</h3>
-<p>To complete this challenge, you must:</p>
-<ol type="1">
-<li>✅ <strong>Use Step 1</strong> to prepare your own image (with your own image file)</li>
-<li>✅ <strong>Use Step 2</strong> to generate a stippled image using blue noise stippling</li>
-<li>⭐ <strong>Optionally use Step 3</strong> to analyze tonal distribution and refine Step 2 parameters (recommended)</li>
-<li>⚠️ <strong>Write Step 4</strong>: Create <code>step4_create_block_letter.py</code> to generate the block letter “S”</li>
-<li>⚠️ <strong>Write Step 5</strong>: Create <code>step5_create_masked.py</code> to apply the mask</li>
-<li>⚠️ <strong>Write Final Step</strong>: Create <code>create_meme.py</code> to assemble the four-panel meme</li>
-<li>✅ <strong>Create a complete <code>index.qmd</code></strong> that uses all functions (with code hidden)</li>
-<li>✅ <strong>Generate your final meme</strong> using your own image</li>
-<li>✅ <strong>Include a brief explanation</strong> (1-3 sentences) of how the meme demonstrates selection bias</li>
-</ol>
-</section>
-<section id="final-output-requirements" class="level3">
-<h3 class="anchored" data-anchor-id="final-output-requirements">Final Output Requirements</h3>
-<p><strong>Important:</strong> All code should be hidden (<code>echo: false</code>) in your final <code>index.qmd</code> output. The rendered HTML should show only: - The final meme image - A brief explanation (1-3 sentences) of how it demonstrates selection bias</p>
-</section>
-<section id="template-for-final-section" class="level3">
-<h3 class="anchored" data-anchor-id="template-for-final-section">Template for Final Section</h3>
-<p>Here’s a template for your final section:</p>
-</section>
-<section id="example-explanation" class="level3">
-<h3 class="anchored" data-anchor-id="example-explanation">Example Explanation</h3>
-<p>Your explanation should be 1-3 sentences. Here’s an example:</p>
-<blockquote class="blockquote">
-<p>This meme demonstrates selection bias by showing how systematic missing data patterns distort our understanding of reality. The original image (Reality) represents the true population, while the stippled version (Your Model) shows our data collection. When selection bias removes data points in a systematic “S” pattern, the resulting estimate becomes biased and no longer represents the true population, just as missing data in real-world studies can lead to incorrect conclusions.</p>
-</blockquote>
-</section>
-</section>
-<section id="tips-for-success" class="level2">
-<h2 class="anchored" data-anchor-id="tips-for-success">Tips for Success</h2>
-<ol type="1">
-<li><strong>Image Selection</strong>: Choose an image with good contrast for best stippling results</li>
-<li><strong>Use Tonal Analysis</strong>: Run Step 3 to understand your image’s brightness distribution, then refine Step 2 parameters</li>
-<li><strong>Function Design</strong>: Write clean, well-documented functions with clear parameter types and return values</li>
-<li><strong>Test Incrementally</strong>: Test each function separately before integrating them</li>
-<li><strong>Professional Output</strong>: Make your meme look polished with good labels, spacing, and layout</li>
-<li><strong>Code Organization</strong>: Keep your functions in separate <code>.py</code> files as specified</li>
-<li><strong>Documentation</strong>: Add docstrings to your functions explaining parameters and return values</li>
-</ol>
-</section>
-<section id="conclusion" class="level2">
-<h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
-<p>By completing this challenge, you’ll have created a memorable visual representation of selection bias that demonstrates how systematic missing data patterns can distort our understanding of reality. The skills you’ve practiced—writing modular Python functions, image processing, and creating professional visualizations—are directly applicable to real-world data analysis projects.</p>
-<p>As you work with real datasets, remember the lesson of this meme: when data is missing in a systematic pattern rather than randomly, your estimates become biased. Recognizing and addressing selection bias is crucial for drawing valid conclusions from your data.</p>
-</section>
-</section>
+<p>四格依次对照完整画面（<strong>Reality</strong>）与点阵化的“数据版本”（<strong>Your Model</strong>）。字母 <strong>S</strong> 表示缺失沿固定形状发生，属于<strong>系统性</strong>缺失而非随机缺失；因此最后一格（<strong>Estimate</strong>）与真实总体不再一致——这正是选择偏差：谁/什么进入样本由某种规则决定时，结论会系统性偏离总体。</p>
 
 </main>
 <!-- /main column -->
