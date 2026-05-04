@@ -228,4 +228,4 @@ plt.tight_layout()
 plt.show()
 ```
 
-The four panels contrast the full scene (**Reality**) with a dot-based stand-in for your data (**Your Model**). The **S** marks *systematic* missingness—observations drop out along a fixed pattern, not at random—so the last panel (**Estimate**) no longer matches the population you started from. That is selection bias: when who or what enters the sample follows a rule, conclusions can be systematically wrong for the group you intended to describe.
+The four panels contrast the full scene (**Reality**) with a dot-based stand-in for your data (**Your Model**). The **S** marks *systematic* missingness—observations drop out along a fixed pattern, not at random, so the last panel (**Estimate**) no longer matches the population you started from. That is selection bias: when who or what enters the sample follows a rule, conclusions can be systematically wrong for the group you intended to describe.
