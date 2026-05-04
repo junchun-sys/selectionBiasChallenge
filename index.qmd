@@ -7,6 +7,10 @@ execute:
   eval: true
 ---
 
+This walkthrough builds a small **selection bias** meme from a single photo: prepare the image, turn it into a stippled “your model” view, summarize tone in a grid, draw an **S** for systematic missingness, mask the stipple through that shape, and assemble the four-panel punchline. Each step below shows one stage of that pipeline.
+
+## Step 1: Prepare the image
+
 ```{python}
 #| label: step1-prepare
 #| echo: false
@@ -37,6 +41,8 @@ ax.set_title('Step 1: Prepared Image', fontsize=14, fontweight='bold', pad=10)
 plt.tight_layout()
 plt.show()
 ```
+
+## Step 2: Stipple the image
 
 ```{python}
 #| label: step2-stipple
@@ -74,11 +80,13 @@ plt.tight_layout()
 plt.show()
 ```
 
+## Step 3: Box-averaged tonal analysis
+
 ```{python}
 #| label: step3-tonal
 #| echo: false
 #| fig-cap: "Box-averaged tonal analysis showing brightness distribution"
-#| output: false
+#| fig-show: false
 
 from step3_create_tonal import create_tonal
 import matplotlib.pyplot as plt
@@ -123,6 +131,8 @@ plt.tight_layout()
 plt.show()
 ```
 
+## Step 4: Block letter (systematic missingness)
+
 ```{python}
 #| label: step4-block-letter
 #| echo: false
@@ -138,9 +148,17 @@ block_letter = create_block_letter_s(h, w, letter="S", font_size_ratio=0.9)
 fig, ax = plt.subplots(figsize=(6.5, 5))
 ax.imshow(block_letter, cmap="gray", vmin=0, vmax=1)
 ax.axis("off")
+ax.set_title(
+    "Step 4: Block Letter (Selection Pattern)",
+    fontsize=14,
+    fontweight="bold",
+    pad=10,
+)
 plt.tight_layout()
 plt.show()
 ```
+
+## Step 5: Masked stipple (estimate)
 
 ```{python}
 #| label: step5-masked
@@ -169,6 +187,8 @@ ax.set_title(
 plt.tight_layout()
 plt.show()
 ```
+
+## Final meme
 
 ```{python}
 #| label: create-final-meme
