@@ -1,6 +1,4 @@
-"""
-Assemble the four-panel statistics meme (Reality, Your Model, Selection Bias, Estimate).
-"""
+"""Assemble the four-panel statistics meme image."""
 
 from __future__ import annotations
 
@@ -45,7 +43,7 @@ def create_statistics_meme(
     background_color: str = SAKURA_PINK,
 ) -> None:
     """
-    Save a 1×4 panel PNG: Reality, Your Model, Selection Bias, Estimate.
+    Save a 1×4 panel PNG (no panel captions on the figure).
 
     All panels are resized to match ``original_img`` shape if needed.
     Default background is soft cherry-blossom pink (``SAKURA_PINK``); pass
@@ -58,8 +56,6 @@ def create_statistics_meme(
         _resize_to_shape(_normalize_gray(block_letter_img), target_shape),
         _resize_to_shape(_normalize_gray(masked_stipple_img), target_shape),
     ]
-    titles = ["Reality", "Your Model", "Selection Bias", "Estimate"]
-
     try:
         face = mcolors.to_rgb(background_color)
     except ValueError:
@@ -75,24 +71,16 @@ def create_statistics_meme(
     )
     fig.patch.set_facecolor(face)
 
-    for ax, img, title in zip(axes, panels, titles):
+    for ax, img in zip(axes, panels):
         ax.set_facecolor(face)
         ax.imshow(img, cmap="gray", vmin=0.0, vmax=1.0, aspect="equal")
         ax.axis("off")
-        ax.set_title(
-            title,
-            fontsize=13,
-            fontweight="bold",
-            pad=12,
-            color="0.12",
-            loc="center",
-        )
         for spine in ax.spines.values():
             spine.set_visible(True)
             spine.set_linewidth(0.8)
             spine.set_edgecolor("0.55")
 
-    plt.subplots_adjust(left=0.015, right=0.985, top=0.82, bottom=0.08, wspace=0.14)
+    plt.subplots_adjust(left=0.015, right=0.985, top=0.94, bottom=0.08, wspace=0.14)
     fig.savefig(
         output_path,
         dpi=dpi,

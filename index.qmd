@@ -110,17 +110,6 @@ for i in range(grid_rows):
 
 plt.tight_layout()
 plt.show()
-
-# Print key statistics for parameter tuning
-print(f"\n📊 Tonal Statistics for Parameter Tuning:")
-print(f"  Mean brightness: {tonal_stats['mean']:.3f}")
-print(f"  Standard deviation: {tonal_stats['std']:.3f}")
-print(f"  Brightness range: [{tonal_stats['min']:.3f}, {tonal_stats['max']:.3f}]")
-print(f"\n💡 Tuning Tips:")
-print(f"  - If mean < 0.4: Image is dark, consider lowering extreme_threshold_low")
-print(f"  - If mean > 0.6: Image is light, consider raising extreme_threshold_high")
-print(f"  - If std > 0.2: High contrast, may need stronger extreme_downweight")
-print(f"  - Use mid_tone_center around {tonal_stats['mean']:.2f} to emphasize average tones")
 ```
 
 ```{python}
@@ -138,12 +127,6 @@ block_letter = create_block_letter_s(h, w, letter="S", font_size_ratio=0.9)
 fig, ax = plt.subplots(figsize=(6.5, 5))
 ax.imshow(block_letter, cmap="gray", vmin=0, vmax=1)
 ax.axis("off")
-ax.set_title(
-    "Step 4: Selection Bias (Block Letter S)",
-    fontsize=14,
-    fontweight="bold",
-    pad=10,
-)
 plt.tight_layout()
 plt.show()
 ```

@@ -13,7 +13,7 @@
         "  eval: true\n",
         "---"
       ],
-      "id": "f05a1e89"
+      "id": "bab3440a"
     },
     {
       "cell_type": "code",
@@ -134,18 +134,7 @@
         "                color=text_color, fontsize=6, fontweight='bold')\n",
         "\n",
         "plt.tight_layout()\n",
-        "plt.show()\n",
-        "\n",
-        "# Print key statistics for parameter tuning\n",
-        "print(f\"\\n📊 Tonal Statistics for Parameter Tuning:\")\n",
-        "print(f\"  Mean brightness: {tonal_stats['mean']:.3f}\")\n",
-        "print(f\"  Standard deviation: {tonal_stats['std']:.3f}\")\n",
-        "print(f\"  Brightness range: [{tonal_stats['min']:.3f}, {tonal_stats['max']:.3f}]\")\n",
-        "print(f\"\\n💡 Tuning Tips:\")\n",
-        "print(f\"  - If mean < 0.4: Image is dark, consider lowering extreme_threshold_low\")\n",
-        "print(f\"  - If mean > 0.6: Image is light, consider raising extreme_threshold_high\")\n",
-        "print(f\"  - If std > 0.2: High contrast, may need stronger extreme_downweight\")\n",
-        "print(f\"  - Use mid_tone_center around {tonal_stats['mean']:.2f} to emphasize average tones\")"
+        "plt.show()"
       ],
       "id": "step3-tonal",
       "execution_count": null,
@@ -170,12 +159,6 @@
         "fig, ax = plt.subplots(figsize=(6.5, 5))\n",
         "ax.imshow(block_letter, cmap=\"gray\", vmin=0, vmax=1)\n",
         "ax.axis(\"off\")\n",
-        "ax.set_title(\n",
-        "    \"Step 4: Selection Bias (Block Letter S)\",\n",
-        "    fontsize=14,\n",
-        "    fontweight=\"bold\",\n",
-        "    pad=10,\n",
-        ")\n",
         "plt.tight_layout()\n",
         "plt.show()"
       ],
@@ -252,7 +235,7 @@
       "source": [
         "The four panels contrast the full scene (**Reality**) with a dot-based stand-in for your data (**Your Model**). The **S** marks *systematic* missingness—observations drop out along a fixed pattern, not at random—so the last panel (**Estimate**) no longer matches the population you started from. That is selection bias: when who or what enters the sample follows a rule, conclusions can be systematically wrong for the group you intended to describe."
       ],
-      "id": "32bf0029"
+      "id": "607c5d97"
     }
   ],
   "metadata": {
