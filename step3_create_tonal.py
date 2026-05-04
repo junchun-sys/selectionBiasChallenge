@@ -91,9 +91,5 @@ def create_tonal(
     else:
         tonal_img = average_tones
     
-    print(f"Created tonal analysis: grid {grid_rows}×{grid_cols}")
-    print(f"Tonal statistics: mean={stats['mean']:.3f}, std={stats['std']:.3f}")
-    print(f"Tone range: [{stats['min']:.3f}, {stats['max']:.3f}]")
-    
     return tonal_img, average_tones, stats
 

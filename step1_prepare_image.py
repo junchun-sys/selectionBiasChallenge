@@ -51,7 +51,6 @@ def prepare_image(
         if img_resized_pil.mode != 'L':
             img_resized_pil = img_resized_pil.convert('L')
         img_resized = np.array(img_resized_pil, dtype=np.float32) / 255.0
-        print(f"Resized image to target size: {img_resized.shape}")
     elif img_array.shape[0] > max_size or img_array.shape[1] > max_size:
         # Resize to fit within max_size while maintaining aspect ratio
         scale = max_size / max(img_array.shape[0], img_array.shape[1])
@@ -60,10 +59,8 @@ def prepare_image(
         if img_resized_pil.mode != 'L':
             img_resized_pil = img_resized_pil.convert('L')
         img_resized = np.array(img_resized_pil, dtype=np.float32) / 255.0
-        print(f"Resized image from {img_array.shape} to {img_resized.shape} for processing")
     else:
         img_resized = img_array.copy()
-        print(f"Image size: {img_resized.shape} (no resizing needed)")
     
     # Ensure img_resized is 2D grayscale
     if len(img_resized.shape) > 2:
@@ -73,6 +70,5 @@ def prepare_image(
     else:
         raise ValueError(f"Unexpected image shape: {img_resized.shape}")
     
-    print(f"Final image shape: {img_resized.shape} (should be 2D for grayscale)")
     return img_resized
 

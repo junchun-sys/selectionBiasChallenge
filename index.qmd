@@ -12,6 +12,11 @@ execute:
 #| echo: false
 #| fig-cap: "Original image prepared for processing"
 #| fig-show: false
+#| message: false
+#| warning: false
+
+import contextlib
+import io
 
 import numpy as np
 import matplotlib.pyplot as plt
@@ -20,7 +25,9 @@ from step1_prepare_image import prepare_image
 # Load and prepare the image
 # CHANGE THIS to use your own image!
 img_path = 'littlegray.jpg'  # Example image - replace with your own image
-gray_image = prepare_image(img_path, max_size=512)
+# Keep any stdout/stderr from imported helpers out of the rendered page
+with contextlib.redirect_stdout(io.StringIO()), contextlib.redirect_stderr(io.StringIO()):
+    gray_image = prepare_image(img_path, max_size=512)
 
 # Display the prepared image
 fig, ax = plt.subplots(figsize=(6.5, 5))
@@ -39,20 +46,24 @@ plt.show()
 #| warning: false
 #| fig-show: false
 
+import contextlib
+import io
+
 from step2_create_stipple import create_stipple
 
 # Create stippled image
-stipple_pattern, samples = create_stipple(
-    gray_image,
-    percentage=0.08,  # 8% of pixels will be stippled
-    sigma=0.9,  # Repulsion radius
-    content_bias=0.9,  # Strongly follow importance map
-    noise_scale_factor=0.1,  # Moderate exploration
-    extreme_downweight=0.5,  # Moderate downweighting of extremes
-    extreme_threshold_low=0.2,  # Downweight tones below 0.2
-    extreme_threshold_high=0.8,  # Downweight tones above 0.8
-    extreme_sigma=0.1  # Smooth transition width
-)
+with contextlib.redirect_stdout(io.StringIO()), contextlib.redirect_stderr(io.StringIO()):
+    stipple_pattern, samples = create_stipple(
+        gray_image,
+        percentage=0.08,  # 8% of pixels will be stippled
+        sigma=0.9,  # Repulsion radius
+        content_bias=0.9,  # Strongly follow importance map
+        noise_scale_factor=0.1,  # Moderate exploration
+        extreme_downweight=0.5,  # Moderate downweighting of extremes
+        extreme_threshold_low=0.2,  # Downweight tones below 0.2
+        extreme_threshold_high=0.8,  # Downweight tones above 0.8
+        extreme_sigma=0.1  # Smooth transition width
+    )
 
 # Display the stippled image
 fig, ax = plt.subplots(figsize=(6.5, 5))
@@ -164,21 +175,37 @@ plt.show()
 #| echo: false
 #| eval: true
 #| fig-cap: "Four-panel meme: Reality, Your Model, Selection Bias, Estimate"
+#| fig-show: false
+#| message: false
+#| warning: false
 
-from IPython.display import Image, display
+import contextlib
+import io
+
+import matplotlib.image as mpimg
+import matplotlib.pyplot as plt
 from create_meme import create_statistics_meme
 
 meme_path = "statistics_meme.png"
-create_statistics_meme(
-    original_img=gray_image,
-    stipple_img=stipple_pattern,
-    block_letter_img=block_letter,
-    masked_stipple_img=masked_stipple,
-    output_path=meme_path,
-    dpi=150,
-    background_color="#FFE8F0",
-)
-display(Image(filename=meme_path))
+with contextlib.redirect_stdout(io.StringIO()), contextlib.redirect_stderr(io.StringIO()):
+    create_statistics_meme(
+        original_img=gray_image,
+        stipple_img=stipple_pattern,
+        block_letter_img=block_letter,
+        masked_stipple_img=masked_stipple,
+        output_path=meme_path,
+        dpi=150,
+        background_color="#FFE8F0",
+    )
+
+meme_rgb = mpimg.imread(meme_path)
+fig_h, fig_w = meme_rgb.shape[0], meme_rgb.shape[1]
+scale = 7 / max(fig_h, fig_w)
+fig, ax = plt.subplots(figsize=(fig_w * scale, fig_h * scale))
+ax.imshow(meme_rgb)
+ax.axis("off")
+plt.tight_layout()
+plt.show()
 ```
 
 The four panels contrast the full scene (**Reality**) with a dot-based stand-in for your data (**Your Model**). The **S** marks *systematic* missingness—observations drop out along a fixed pattern, not at random—so the last panel (**Estimate**) no longer matches the population you started from. That is selection bias: when who or what enters the sample follows a rule, conclusions can be systematically wrong for the group you intended to describe.
